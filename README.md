@@ -1,3 +1,5 @@
+**Note:** This repository cloned from https://github.com/toyamarinyon/prisma-factory-generator to fix some issue related to fields like JsonValue.
+
 Automatically generate a factory from your Prisma Schema. This package contains a prisma generator so reference will automatically update everytime you will run `prisma generate`
 
 There is a schema that looks like this
