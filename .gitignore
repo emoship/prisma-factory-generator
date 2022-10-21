@@ -1,5 +1,6 @@
 node_modules
-dist
+# Temporary ignore dist to able to use by another project from github
+# dist
 .env
 dmmf.json
 *.log
