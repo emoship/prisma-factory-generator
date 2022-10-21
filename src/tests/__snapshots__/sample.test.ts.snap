@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate model 1`] = `
+"import { PrismaClient } from \\"@prisma/client\\"
+import { Prisma } from \\".prisma/client\\"
+import * as faker from \\"faker\\"
+const prisma = new PrismaClient()
+
+export function inputsForUser() {
+  return {
+    email: faker.internet.email(),
+  }
+}
+
+type UserFactoryArgs = Omit<Prisma.UserCreateArgs, 'data'> & {
+  data: Pick<Prisma.UserCreateInput, 'accessToken'> & Partial<Omit<Prisma.UserCreateInput, 'accessToken'>>
+}
+
+export async function createUser(args?: UserFactoryArgs) {
+
+  return await prisma.user.create({
+    ...args,
+    data: {
+      ...inputsForUser(),
+      ...args?.data
+    },
+  })
+
+}
+
+export function inputsForAccessToken() {
+  return {
+  }
+}
+
+type AccessTokenFactoryArgs = Omit<Prisma.AccessTokenCreateArgs, 'data'> & {
+  data: Pick<Prisma.AccessTokenCreateInput, 'user'> & Partial<Omit<Prisma.AccessTokenCreateInput, 'user'>>
+}
+
+export async function createAccessToken(args: AccessTokenFactoryArgs) {
+
+  return await prisma.accessToken.create({
+    ...args,
+    data: {
+      ...inputsForAccessToken(),
+      ...args?.data
+    },
+  })
+
+}
+"
+`;
