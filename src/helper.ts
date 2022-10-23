@@ -10,6 +10,10 @@ export function fakerForStringField(fieldName: string) {
   if (internetFakers.includes(fieldName)) {
     return `faker.internet.${fieldName}()`
   }
+  const addressFakers = Object.keys(faker.address)
+  if (addressFakers.includes(fieldName)) {
+    return `faker.address.${fieldName}()`
+  }
   return 'faker.name.title()'
 }
 

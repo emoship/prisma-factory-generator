@@ -50,9 +50,6 @@ export function getModelFactoryParameterInterfaceProperties(
         const relationKind = field.isList ? 'many' : 'one'
         const isOptional = !field.isRequired || field.isList
         const relationDest = models.find((m) => {
-          if (m.name === model.name) {
-            return false
-          }
           return m.fields.find((f) => f.relationName === field.relationName)
         })
         if (!relationDest) {
