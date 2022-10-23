@@ -11,9 +11,6 @@ function getRelationFields(model, models) {
         var relationKind = field.isList ? 'many' : 'one';
         var isOptional = !field.isRequired || field.isList;
         var relationDest = models.find(function(m) {
-            if (m.name === model.name) {
-                return false;
-            }
             return m.fields.find(function(f) {
                 return f.relationName === field.relationName;
             });
