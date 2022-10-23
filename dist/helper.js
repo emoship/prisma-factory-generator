@@ -37,6 +37,10 @@ function fakerForStringField(fieldName) {
     if (internetFakers.includes(fieldName)) {
         return "faker.internet.".concat(fieldName, "()");
     }
+    var addressFakers = Object.keys(faker.address);
+    if (addressFakers.includes(fieldName)) {
+        return "faker.address.".concat(fieldName, "()");
+    }
     return 'faker.name.title()';
 }
 function fakerForField(field) {
